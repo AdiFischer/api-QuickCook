@@ -12,7 +12,7 @@ export async function addNewRecipe(req, res) {
             return
         })
     res.status(201).send({ message: "New Recipe Added." })
-    getAllRecipes(req, res) //getAll?
+    getAllRecipes(req, res)
 }
 
 export async function getAllRecipes(req, res) {
@@ -31,7 +31,7 @@ export async function updateRecipe(req, res) {
             return
         })
     res.status(202).send({ message: "recipe updated" })
-    getAllRecipes(req, res)//?//
+    
 }
 export async function getOneRecipe(req, res) {
     const db = dbConnect()
