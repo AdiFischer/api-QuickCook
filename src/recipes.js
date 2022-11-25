@@ -31,8 +31,8 @@ export async function updateRecipe(req, res) {
             return
         })
     res.status(202).send({ message: "recipe updated" })
-    
 }
+
 export async function getOneRecipe(req, res) {
     const db = dbConnect()
     const { recipeId } = req.params
@@ -48,3 +48,53 @@ export async function deleteRecipe(req, res) {
         .findOneAndDelete({ _id: new ObjectId(recipeId) })
     res.status(203).send('Recipe Deleted')
 }
+
+export const getSalads = async (req, res) => {
+    const query = { type: "Salads" };
+    let theseSalads= await salads
+      .find(query)
+      .toArray()
+      .catch((err) => res.status(500).send(err));
+    res.send(theseSalads);
+  };
+
+export const getDairy = async (req, res) => {
+    const query = { type: "Dairy" };
+    let theseDairy= await dairy
+      .find(query)
+      .toArray()
+      .catch((err) => res.status(500).send(err));
+    res.send(theseDairy);
+  };
+export const getMeat = async (req, res) => {
+    const query = { type: "Meat" };
+    let theseMeat= await meat
+      .find(query)
+      .toArray()
+      .catch((err) => res.status(500).send(err));
+    res.send(theseMeat);
+  };
+export const getChicken = async (req, res) => {
+    const query = { type: "Chicken" };
+    let theseChicken= await chicken
+      .find(query)
+      .toArray()
+      .catch((err) => res.status(500).send(err));
+    res.send(theseChicken);
+  };
+export const getFish = async (req, res) => {
+    const query = { type: "Fish" };
+    let theseFish= await fish
+      .find(query)
+      .toArray()
+      .catch((err) => res.status(500).send(err));
+    res.send(theseFish);
+  };
+export const getDesserts = async (req, res) => {
+    const query = { type: "Desserts" };
+    let theseDesserts= await desserts
+      .find(query)
+      .toArray()
+      .catch((err) => res.status(500).send(err));
+    res.send(theseDesserts);
+  };
